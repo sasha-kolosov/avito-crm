@@ -3,9 +3,17 @@ class Database {
         this.database = database
     }
 
-    get() {
+    get(params) {
         try {
-            
+
+            const answer = new DatabaseHandler({
+                method : "GET",
+                database : this.database,
+                params : params
+            })
+
+            return answer.response()
+
         } catch (error) {
             return `Server answer ${error}`
         }
@@ -13,6 +21,13 @@ class Database {
 
     post() {
         try {
+
+            const answer = new DatabaseHandler({
+                method : "POST",
+                database : this.database
+            })
+
+            return answer.response()
 
         } catch (error) {
             return `Server answer ${error}`
@@ -22,6 +37,13 @@ class Database {
     update() {
         try {
 
+            const answer = new DatabaseHandler({
+                method : "UPDATE",
+                database : this.database
+            })
+
+            return answer.response()
+
         } catch (error) {
             return `Server answer ${error}`
         }
@@ -29,6 +51,13 @@ class Database {
 
     delete() {
         try {
+
+            const answer = new DatabaseHandler({
+                method : "DELETE",
+                database : this.database
+            })
+
+            return answer.response()
 
         } catch (error) {
             return `Server answer ${error}`
